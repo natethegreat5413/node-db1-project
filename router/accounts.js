@@ -68,13 +68,14 @@ router.delete('/:id', (req, res) => {
     .where({ id: accoundId })
     .del()
     .then(account => {
-        if(acccount){
+        if(account){
             res.status(200).json({ message: 'removed successfully' })
         }else{
             res.status(404).json({ message: 'request not found' })
         }
     })
     .catch(error => {
+        console.log(error)
         res.status(500).json({ error: error.message })
     })
 })
